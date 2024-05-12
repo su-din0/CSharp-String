@@ -16,5 +16,22 @@ namespace _08
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string m = textBox1.Text;
+
+            string[] slova = m.Split(' ');
+            MessageBox.Show($"Počet slov je {slova.Length}");
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string m = textBox1.Text;
+            char[] chars = { ' ' };
+            string[] slova = m.Split(chars, StringSplitOptions.RemoveEmptyEntries);
+            MessageBox.Show($"Počet slov je {slova.Length}");
+        }
     }
 }
