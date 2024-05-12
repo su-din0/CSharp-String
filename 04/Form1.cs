@@ -16,5 +16,36 @@ namespace _04
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string s = textBox1.Text;
+            int k = -1;
+
+            foreach (char item in s)
+            {
+                if (char.IsDigit(item))
+                {
+                    k = int.Parse(item.ToString());
+                    break;
+                }
+            }
+
+            if (k == -1)
+            {
+                textBox1.Text = s;
+                return;
+            }
+            else if(k >= s.Length)
+            {
+                textBox1.Text = "";
+                return;
+            }
+            else
+            {
+                s = s.Remove(s.Length - k, k);
+                textBox1.Text = s;
+            }
+        }
     }
 }

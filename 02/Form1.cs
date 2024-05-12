@@ -16,5 +16,28 @@ namespace _02
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string samohlasky = "aeiyou";
+            int pocetSamohlasek = 0;
+            string souhlasky = "bflmpsvz";
+            int pocetSouhlasek = 0;
+            string nepisemne = " !";
+            int pocetNepisemnych = 0;
+
+            string s = textBox1.Text;
+            foreach (char item in s)
+            {
+                char temp = char.ToLower(item);
+                if (samohlasky.Contains(temp)) ++pocetSamohlasek;
+                else if (souhlasky.Contains(temp)) ++pocetSouhlasek;
+                else if (nepisemne.Contains(temp)) ++pocetNepisemnych;
+            }
+
+            MessageBox.Show($"Počet samohlásek: {pocetSamohlasek}\n" +
+                $"Počet souhlásek: {pocetSouhlasek}\n" +
+                $"Počet nepísmenných znaků: {pocetNepisemnych}");
+        }
     }
 }

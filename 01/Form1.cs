@@ -16,5 +16,33 @@ namespace _01
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string[] lines = textBox1.Lines;
+
+            for (int i = 0; i < lines.Length; i++)
+            {
+                string radek = lines[i];
+                radek = radek.Trim(' ');
+                char prvniZnak = char.ToUpper(radek[0]);
+
+                //Nadbytečné mezery
+                while (radek.Contains("  "))
+                {
+                    radek = radek.Replace("  ", " ");
+                }
+
+                //Tečky
+                radek = radek.TrimEnd('.');
+                radek += ".";
+
+
+                string newLine = prvniZnak + radek.Substring(1);
+                lines[i] = newLine;
+            }
+
+            textBox1.Lines = lines;
+        }
     }
 }
